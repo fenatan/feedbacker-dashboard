@@ -46,7 +46,6 @@ export default {
     });
 
     function handleModalToogle(payload) {
-      console.log('handle', payload);
       if (payload.status) {
         state.isActive = true;
         state.component = payload.component;

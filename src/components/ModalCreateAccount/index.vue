@@ -151,7 +151,7 @@ export default {
           return;
         }
 
-        switch (errors.status) {
+        switch (errors?.status) {
           case 401:
             toast.error('Dados inválidos');
             break;

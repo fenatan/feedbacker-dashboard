@@ -1,6 +1,6 @@
 import axios from 'axios';
 import router from '../router';
-import Store from '../store';
+import { setGlobalLoading } from '../store/global';
 import AuthService from './auth';
 import UsersService from './users';
 
@@ -13,7 +13,7 @@ const httpClient = axios.create({
 });
 
 httpClient.interceptors.request.use((config) => {
-  Store.Global.setGlobalLoading(true);
+  setGlobalLoading(true);
 
   const token = window.localStorage.getItem('token');
   const newConfigs = { ...config };
@@ -26,13 +26,13 @@ httpClient.interceptors.request.use((config) => {
 });
 
 httpClient.interceptors.response.use((response) => {
-  Store.Global.setGlobalLoading(false);
+  setGlobalLoading(false);
   return response;
 }, (error) => {
   const canThrowAnError = error.request.status === 0 || error.request.status === 500;
 
   if (canThrowAnError) {
-    Store.Global.setGlobalLoading(false);
+    setGlobalLoading(false);
     throw new Error(error.message);
   }
 
@@ -40,7 +40,7 @@ httpClient.interceptors.response.use((response) => {
     router.push({ name: 'home' });
   }
 
-  Store.Global.setGlobalLoading(false);
+  setGlobalLoading(false);
   return error;
 });
 
