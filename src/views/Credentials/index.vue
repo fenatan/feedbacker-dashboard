@@ -34,7 +34,7 @@
         items-center bg-brand-gray w-full lg:w-1/2"
       >
         <span v-if="state.hasError">Error ao carregar a ApiKey</span>
-        <span v-else>{{ store.User.currentUser.apiKey }}</span>
+        <span v-else id="apiKey">{{ store.User.currentUser.apiKey }}</span>
         <div class="flex ml-20 mr-1" v-if="!state.hasError">
           <Icon
             @click="handleCopy"
@@ -44,6 +44,7 @@
             class="cursor-pointer"
           />
           <Icon
+            id="generate-apiKey"
             @click="handleGenerateApiKey"
             name="loading"
             :color="brandColors.graydark"
