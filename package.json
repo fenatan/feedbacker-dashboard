@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "pre": "lint && test:unit"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
@@ -41,7 +42,7 @@
     "vue-jest": "^5.0.0-0"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre": "pre-commit"
   },
   "lint-staged": {
     "*.{js,jsx,vue}": [
