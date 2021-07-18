@@ -42,7 +42,7 @@
     "vue-jest": "^5.0.0-0"
   },
   "gitHooks": {
-    "pre": "pre-commit"
+    "pre": "pre"
   },
   "lint-staged": {
     "*.{js,jsx,vue}": [
