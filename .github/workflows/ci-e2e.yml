@@ -1,4 +1,4 @@
-name: E2E testing
+name: Dashboard e2e testing
 
 on:
   workflow_dispatch:
@@ -25,9 +25,9 @@ jobs:
         run: |
           npm install serve
           $(npm bin)/serve dist -s -p 8080 &
-
       - name: Run tests
-        uses: cypress-io/github-actions@v2
+        uses: cypress-io/github-action@v2
         with:
+          working-directory: dashboard
           browser: chrome
           headless: true
