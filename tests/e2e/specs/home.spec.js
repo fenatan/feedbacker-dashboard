@@ -31,7 +31,7 @@ describe('Home', () => {
     cy.get('#header-login-button').click();
     cy.get('#modal-login');
 
-    cy.get('#email-field').type('igor@igor.me');
+    cy.get('#email-field').type('igor@igor.mee');
     cy.get('#password-field').type('1234');
     cy.get('#submit-button').click();
 
