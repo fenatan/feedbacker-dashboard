@@ -31,4 +31,3 @@ jobs:
           browser: chrome
           headless: true
           install-command: npm install
-          command: npm run test:e2e
