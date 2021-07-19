@@ -15,16 +15,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: npm install
+      - run: yarn install
 
-      - run: npm run build
+      - run: yarn run build
         env:
           NODE_ENV: production
 
       - name: Run project locally
         run: |
-          npm install serve
-          $(npm bin)/serve dist -s -p 8080 &
+          yarn install serve
+          $(yarn bin)/serve dist -s -p 8080 &
       - name: Run tests
         uses: cypress-io/github-action@v2
         with:	
