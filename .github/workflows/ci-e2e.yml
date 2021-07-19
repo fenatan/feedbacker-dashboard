@@ -15,18 +15,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: yarn add
+      - run: npm install
 
-      - run: yarn build
+      - run: npm run build
         env:
           NODE_ENV: production
 
       - name: Run project locally
         run: |
-          yarn add serve
-          $(yarn bin)/serve dist -s -p 8080 &
+          npm install serve
+          $(npm bin)/serve dist -s -p 8080 &
       - name: Run tests
         uses: cypress-io/github-action@v2
         with:	
           browser: chrome
           headless: true
+          install-command: npm install
+          command: npm run test:e2e
